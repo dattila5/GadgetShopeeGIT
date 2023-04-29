@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GadgetShopeeManager.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900">
+        Title="GadgetShopee" Height="600" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />

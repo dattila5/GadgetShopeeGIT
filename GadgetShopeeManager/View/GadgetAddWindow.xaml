@@ -1,0 +1,31 @@
+﻿<Window x:Class="GadgetShopeeManager.View.GadgetAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GadgetShopeeManager.View"
+        mc:Ignorable="d"
+        Title="Eszkoz felvetele a rendszerbe" Height="400" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Nev"/>
+        <Label Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Leiras"/>
+        <Label Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Kezdo licit"/>
+        <Label Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Content="Tipus"/>
+        <TextBox Text="{Binding Name}" Grid.Row="0" Grid.Column="1"/>
+        <TextBox Text="{Binding Description}" Grid.Row="1" Grid.Column="1"/>
+        <TextBox Text="{Binding StartLicit}" Grid.Row="2" Grid.Column="1"/>
+        <TextBox Text="{Binding Type}" Grid.Row="3" Grid.Column="1"/>
+        <Button Command="{Binding CreateCommand}" CommandParameter="{Binding ElementName=newGadgetWindow}" Grid.Row="4" Grid.ColumnSpan="2" Content="Letrehozas" Margin="5" FontSize="20"/>
+    </Grid>
+</Window>
