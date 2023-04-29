@@ -1,0 +1,70 @@
+﻿<Window x:Class="GadgetShopeeManager.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GadgetShopeeManager.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="2" Grid.Column="0">
+            <Label Content="Eszkozok / Kutyuk"/>
+            <ListBox ItemsSource="{Binding Gadgets, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedGadget, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" x:Name="GadgetNameLB" Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="{Binding Type}" Grid.Column="0"/>
+                                <Label Content="{Binding Start_licit}" Grid.Column="2"/>
+                                <Label Content="{Binding Id}" Grid.Column="4"/>
+                                <Label x:Name="TypeLB" Grid.Column="1"/>
+                                <Label x:Name="StartPriceLB" Grid.Column="3"/>
+                                <Label x:Name="IdLB" Grid.Column="5"/>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <GroupBox x:Name="TopRightGB" Grid.Column="1" Grid.Row="0" Header="Valasszon eszkozt" Margin="10">
+            <StackPanel>
+                <Label Content="Licitalasok:"/>
+                <DataGrid x:Name="BidsDG" ItemsSource="{Binding Licits, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ActualHeight, ElementName=TopRightGB}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nev" Binding="{Binding user.Name}" />
+                        <DataGridTextColumn Header="Email" Binding="{Binding user.Email}" />
+                        <DataGridTextColumn Header="Letrehozva" Binding="{Binding Created_at}"/>
+                        <DataGridTextColumn Header="Licit Ertek" Binding="{Binding Value}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Button Command="{Binding AddGadgetCommand}" FontSize="18" Content="Eszkoz felvetele"/>
+            <Button Command="{Binding DeleteGadgetCommand}" FontSize="18" Content="Eszkoz torlese"/>
+            <Button Command="{Binding ShellGadgetCommand}" FontSize="18" Content="Eszkoz eladasa"/>
+            <Button Command="{Binding ExportGadgetsCommand}" FontSize="18" Content="Eszkozok exportalasa"/>
+        </StackPanel>
+    </Grid>
+</Window>
