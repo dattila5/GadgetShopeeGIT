@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GadgetShopeeManager.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,11 @@ namespace GadgetShopeeManager.View
     /// </summary>
     public partial class GadgetAddWindow : Window
     {
+        public GadgetAddVM ViewModel;
         public GadgetAddWindow()
         {
+            this.ViewModel = new GadgetAddVM();
+            this.DataContext = this.ViewModel;
             InitializeComponent();
         }
     }

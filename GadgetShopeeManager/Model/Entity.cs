@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GadgetShopeeManager.Model
 {
-    internal class Entity
+    public class Entity
     {
         [Key , DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

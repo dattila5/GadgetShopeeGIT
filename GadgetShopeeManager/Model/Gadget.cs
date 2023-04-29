@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GadgetShopeeManager.Model
 {
-    internal class Gadget : Entity
+    public class Gadget : Entity
     {
         public string Name { get; set; }
         public string Type { get; set; }

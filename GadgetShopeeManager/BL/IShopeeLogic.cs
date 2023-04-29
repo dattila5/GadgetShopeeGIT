@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GadgetShopeeManager.BL
 {
-    internal interface IShopeeLogic
+    public interface IShopeeLogic
     {
         public ObservableCollection<Gadget> LoadData();
         public void AddGadget();

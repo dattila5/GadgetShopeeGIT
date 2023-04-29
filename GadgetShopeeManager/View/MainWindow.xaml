@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vms="clr-namespace:GadgetShopeeManager.ViewModel"
+        d:DataContext="{d:DesignInstance Type=vms:MainVM}"
         xmlns:local="clr-namespace:GadgetShopeeManager.View"
         mc:Ignorable="d"
         Title="GadgetShopee" Height="600" Width="900">
@@ -50,14 +52,16 @@
         <GroupBox x:Name="TopRightGB" Grid.Column="1" Grid.Row="0" Header="Valasszon eszkozt" Margin="10">
             <StackPanel>
                 <Label Content="Licitalasok:"/>
-                <DataGrid x:Name="BidsDG" ItemsSource="{Binding Licits, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ActualHeight, ElementName=TopRightGB}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Nev" Binding="{Binding user.Name}" />
-                        <DataGridTextColumn Header="Email" Binding="{Binding user.Email}" />
-                        <DataGridTextColumn Header="Letrehozva" Binding="{Binding Created_at}"/>
-                        <DataGridTextColumn Header="Licit Ertek" Binding="{Binding Value}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <ListView ItemsSource="{Binding Licits, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ActualHeight, ElementName=group}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Név" Width="80" DisplayMemberBinding="{Binding User.Name}"/>
+                            <GridViewColumn Header="Email" Width="130" DisplayMemberBinding="{Binding User.Email}"/>
+                            <GridViewColumn Header="Létrehozva" Width="120" DisplayMemberBinding="{Binding Created_At}"/>
+                            <GridViewColumn Header="Licit értéke" Width="80" DisplayMemberBinding="{Binding Value}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </StackPanel>
         </GroupBox>
         <StackPanel Grid.Row="1" Grid.Column="1">

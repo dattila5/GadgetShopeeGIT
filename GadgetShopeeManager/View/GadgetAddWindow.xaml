@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GadgetShopeeManager.View"
         mc:Ignorable="d"
-        Title="Eszkoz felvetele a rendszerbe" Height="400" Width="500">
+        Title="Eszkoz felvetele a rendszerbe" Height="400" Width="500" x:Name="newGadgetWindow">
     <Grid>
         <Grid.ColumnDefinitions>
         <ColumnDefinition Width="1*" />
@@ -26,6 +26,6 @@
         <TextBox Text="{Binding Description}" Grid.Row="1" Grid.Column="1"/>
         <TextBox Text="{Binding StartLicit}" Grid.Row="2" Grid.Column="1"/>
         <TextBox Text="{Binding Type}" Grid.Row="3" Grid.Column="1"/>
-        <Button Command="{Binding CreateCommand}" CommandParameter="{Binding ElementName=newGadgetWindow}" Grid.Row="4" Grid.ColumnSpan="2" Content="Letrehozas" Margin="5" FontSize="20"/>
+        <Button Command="{Binding CreateCommand}" CommandParameter="{Binding ElementName=newGadgetWindow}" Grid.Row="4" Grid.ColumnSpan="2" Content="Létrehozás" Margin="5" FontSize="20"/>
     </Grid>
 </Window>
