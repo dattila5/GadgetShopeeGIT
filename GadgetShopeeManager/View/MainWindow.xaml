@@ -52,16 +52,14 @@
         <GroupBox x:Name="TopRightGB" Grid.Column="1" Grid.Row="0" Header="Valasszon eszkozt" Margin="10">
             <StackPanel>
                 <Label Content="Licitalasok:"/>
-                <ListView ItemsSource="{Binding Licits, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ActualHeight, ElementName=group}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Név" Width="80" DisplayMemberBinding="{Binding User.Name}"/>
-                            <GridViewColumn Header="Email" Width="130" DisplayMemberBinding="{Binding User.Email}"/>
-                            <GridViewColumn Header="Létrehozva" Width="120" DisplayMemberBinding="{Binding Created_At}"/>
-                            <GridViewColumn Header="Licit értéke" Width="80" DisplayMemberBinding="{Binding Value}"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                <DataGrid x:Name="BidsDG" ItemsSource="{Binding Licits, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ActualHeight, ElementName=TopRightGB}" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nev" Binding="{Binding User.Name}" />
+                        <DataGridTextColumn Header="Email" Binding="{Binding User.Email}" />
+                        <DataGridTextColumn Header="Letrehozva" Binding="{Binding Created_at}"/>
+                        <DataGridTextColumn Header="Licit Ertek" Binding="{Binding Value}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </GroupBox>
         <StackPanel Grid.Row="1" Grid.Column="1">
